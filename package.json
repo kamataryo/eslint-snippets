@@ -1,0 +1,16 @@
+{
+  "name": "eslint-snipets",
+  "version": "0.0.0",
+  "description": "Snippets of all eslint rules available",
+  "files": [
+    "snippets"
+  ],
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cson": "^4.1.0",
+    "eslint": "^4.1.1"
+  }
+}

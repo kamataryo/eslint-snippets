@@ -1,0 +1,38 @@
+sudo: false
+
+language: node_js
+
+node_js:
+- '7'
+
+env:
+  global:
+  - GH_REF: kamataryo/eslint-snippets
+
+cache:
+  yarn: true
+  directories:
+  - "~/.cache/yarn"
+
+before_script:
+- yarn global add npm-check-updates
+
+script:
+- node .bin/build.js
+
+# after_success:
+# - openssl aes-256-cbc -K $encrypted_04592acae1fe_key -iv $encrypted_04592acae1fe_iv -in .travis_rsa.enc -out ./.travis_rsa -d
+# - mv ./.travis_rsa $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh/id_rsa
+# - "./.bin/travis-cron-upgrade.sh"
+
+# deploy:
+#   provider: npm
+#   email: kamataryo@users.noreply.github.com
+#   on:
+#     tags: true
+#   skip_cleanup: true
+#
+# notifications:
+#   slack:
+#     rooms:
+#       secure: QnJXdzFdd61C4tplcCNpvoOoD0qdbYrZ7i7dv1FW0MaqDD82kUTIKrRfQCcwkvdM+WhUwhF6vHrHOqyZon1HDQFoc9tIZhDX0ME5vwSrvLxVXfYQXlk2PDI26sRYEiHiUJdyx4bL2id7Q6CVbRSk2h++kVvwI3Yd8NofFmEJerkyTUimvxX+VfB1BDeqnt43Af18TtuiyV0WIzTuuFhmz+jFk2MhXPyVqbP4V2Pm+5qq6km3e6ozfNP0f6jyOPNh+eA/BbTBQKtGLOkTNH4BR34dHfQ5z5Uw6kRygWI/OSI4vW/035Dbdh0p+t4q9CWnKamw8KEguRsNJB7mBRAcKKSQRaTwbZW/rxboIyryL/kPOCU1UjpEvLKOpwE1Bsj+LZj5OvMA03ltb0/Cu8z6s4dLT3SgsBCt/YDTVMF417wi4JSI4RyursD3C+hc45dbVjaf/n9RfN4xnPirmsDgmAb7G+ayrv7uFZiLyREzIwiLll+2s337FUK9bWv5XyCDVRDclHxiA04WqKKqkZ04WhBLz+6CuPzHjYWkknriwSsd59pQh5tDeEZGIwhxlvWsblyN//Ly6ZxtV01oewINg3fQxAKjusmrs+1GyFRbh8QGB2VoogFm01Wojc3Ha3BP7RnJ/yicEWELNl7l+KQA5qzKhlk+tOZLi1yb4n00udA=
