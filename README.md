@@ -1,5 +1,8 @@
 # ESLint snippets for Atom
 
+[![Build Status](https://travis-ci.org/kamataryo/eslint-snippets.svg?branch=master)](https://travis-ci.org/kamataryo/eslint-snippets)
+
+
 Snippets of all ESLint rules for [Atom](https://atom.io/) editor.
 
 
@@ -13,5 +16,11 @@ apm install eslint-snippets
 
 Alternatively go to `Atom > Preferences > Packages` and search for `eslint-snippets`.
 
-## History
-See [Release Notes](https://github.com/kamataryo/eslint-snippets/releases)
+## development
+
+```shell
+git clone git@github.com:kamataryo/eslint-snippets.git
+cd eslint-snippets
+npm install
+npm run build
+```
