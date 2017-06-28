@@ -1,13 +1,13 @@
 {
   "name": "eslint-snippets",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Snippets of all eslint rules available",
   "keywords": "atom, eslint snippets",
   "files": [
     "snippets"
   ],
   "scripts": {
-    "build": ".bin/build.js",
+    "build": ".bin/build.js"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
