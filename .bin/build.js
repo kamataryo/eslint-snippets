@@ -46,7 +46,7 @@ const result = rules.reduce((prev, rule) => {
   }
   prev[fileSelector][`eslint-disable-rule-at-next-line: ${rule}`] = {
     prefix : `eslint-${rule}`,
-    body   : `// eslint-disable-next-line ${rule} $1\n`,
+    body   : `// eslint-disable-next-line ${rule} $1`,
   }
 
   return prev
@@ -58,6 +58,3 @@ fs.writeFile('./snippets/eslint.cson', cson.stringify(result), err => {
   }
   console.log('done')
 })
-
-
-""

@@ -1,38 +1,18 @@
 sudo: false
-
 language: node_js
-
 node_js:
 - '7'
-
 env:
   global:
-  - GH_REF: kamataryo/eslint-disable-snipets
-
+  - GH_REF: kamataryo/eslint-snipets
+  - secure: dSWe7AHZx9j6rHf/+otu22wOCaRNFoMS7xz+5/flVPVLtUNCvB0Sr8IRtnGqFkqGFzTibB7atxPFvNq1jmHoKWAmZQnhRA/R3/9W4A6tnFILUyTrVdFGkX9vFw5whY5qw7m3lM2K+5jF83Rr49C7DMq4r2gO15y1anCXrEIu7wlLGCFaG7Zw+9CpXSItpUCJCK8H68ffqYsa2XzLDpOHQD0arZ3T3gzXoz6uVoK9/C/QJxTOq0rTiP2LS3e5sZYRoO7MrHyWROa9YiPp5t+lz7W40t7sGoJFSCpI5ZLBh77CRAq8GpEIlnh7DbOlhKO6BvtiL8alB71AubXjk1G0ObqbeCqeym/sM7ksyEOmLeCecNyN+lTL4iKMWgVKjVvkXvfqH63/7Epl/+WONVvFKORkXOJJ/NNbKK8Vi1W4/oXYA/U5ps1EO8W3oo5hybc4zCHWGBW3Ubs4R0rRR3lomcmAW2L80PEj90yk5P8tdHlK88X19SFmUHn+k0/w93rvw+DsYnEx1KDfw/kyv6wCe99T7BDgXRWsRfC+HBAyOiaQh5rl/ktSgovIS3FFXcGhqj9Q1U1YNM/NH1G0GloRrFuqXA8NvkmYKQF9LLvTxPBBP4u+3e5xtVyjR094TVysWxKBE5BtcPe79x3SZ54mTtPDiMk/EzBsDLcVa4HcyrU=
 cache:
   yarn: true
   directories:
   - "~/.cache/yarn"
-
 before_script:
 - yarn global add npm-check-updates
-
 script:
 - node .bin/build.js
-
-# after_success:
-# - openssl aes-256-cbc -K $encrypted_04592acae1fe_key -iv $encrypted_04592acae1fe_iv -in .travis_rsa.enc -out ./.travis_rsa -d
-# - mv ./.travis_rsa $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh/id_rsa
-# - "./.bin/travis-cron-upgrade.sh"
-
-# deploy:
-#   provider: npm
-#   email: kamataryo@users.noreply.github.com
-#   on:
-#     tags: true
-#   skip_cleanup: true
-#
-# notifications:
-#   slack:
-#     rooms:
-#       secure: QnJXdzFdd61C4tplcCNpvoOoD0qdbYrZ7i7dv1FW0MaqDD82kUTIKrRfQCcwkvdM+WhUwhF6vHrHOqyZon1HDQFoc9tIZhDX0ME5vwSrvLxVXfYQXlk2PDI26sRYEiHiUJdyx4bL2id7Q6CVbRSk2h++kVvwI3Yd8NofFmEJerkyTUimvxX+VfB1BDeqnt43Af18TtuiyV0WIzTuuFhmz+jFk2MhXPyVqbP4V2Pm+5qq6km3e6ozfNP0f6jyOPNh+eA/BbTBQKtGLOkTNH4BR34dHfQ5z5Uw6kRygWI/OSI4vW/035Dbdh0p+t4q9CWnKamw8KEguRsNJB7mBRAcKKSQRaTwbZW/rxboIyryL/kPOCU1UjpEvLKOpwE1Bsj+LZj5OvMA03ltb0/Cu8z6s4dLT3SgsBCt/YDTVMF417wi4JSI4RyursD3C+hc45dbVjaf/n9RfN4xnPirmsDgmAb7G+ayrv7uFZiLyREzIwiLll+2s337FUK9bWv5XyCDVRDclHxiA04WqKKqkZ04WhBLz+6CuPzHjYWkknriwSsd59pQh5tDeEZGIwhxlvWsblyN//Ly6ZxtV01oewINg3fQxAKjusmrs+1GyFRbh8QGB2VoogFm01Wojc3Ha3BP7RnJ/yicEWELNl7l+KQA5qzKhlk+tOZLi1yb4n00udA=
+after_success:
+- .bin/apm-release.sh
