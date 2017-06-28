@@ -7,7 +7,7 @@ node_js:
 
 env:
   global:
-  - GH_REF: kamataryo/eslint-snippets
+  - GH_REF: kamataryo/eslint-disable-snipets
 
 cache:
   yarn: true

@@ -1,10 +1,13 @@
 {
-  "name": "eslint-snipets",
+  "name": "eslint-disable-snipets",
   "version": "0.0.0",
   "description": "Snippets of all eslint rules available",
   "files": [
     "snippets"
   ],
+  "activationCommands": {
+    "atom-workspace": "eslint-snipets:toggle"
+  },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
