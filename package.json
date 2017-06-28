@@ -20,11 +20,11 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamataryo/eslint-snipets.git"
+    "url": "git+https://github.com/kamataryo/eslint-snippets.git"
   },
   "author": "kamataryo <mugil.cephalus+gitgub.com@gmail.com>",
   "bugs": {
-    "url": "https://github.com/kamataryo/eslint-snipets/issues"
+    "url": "https://github.com/kamataryo/eslint-snippets/issues"
   },
-  "homepage": "https://github.com/kamataryo/eslint-snipets#readme"
+  "homepage": "https://github.com/kamataryo/eslint-snippets#readme"
 }
