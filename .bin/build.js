@@ -1,56 +1,50 @@
 const fs = require('fs')
 const cson = require('cson')
 const rules = Object.keys(require('eslint/conf/eslint-all').rules)
-const fileSelector = [
+
+const fileSelectors = [
   '.source.js',
-].join(', ')
+  '.source.json',
+]
 
 const result = rules.reduce((prev, rule) => {
 
-  const description = require(`eslint/lib/rules/${rule}`).meta.docs.description
+  const { description } = require(`eslint/lib/rules/${rule}`).meta.docs
 
   // comment syntax
-  prev[fileSelector][`eslint-comment-syntax: eslint-enable`] = {
-    prefix: `eslint-enable`,
-    body: `/* eslint-enable $1 */`,
+  prev[fileSelectors[0]][`eslint-disable ${rule}`] = {
+    prefix: `${rule} eslint-disable`,
+    body: `/* eslint-disable ${rule} */\n$1\n/* eslint-enable ${rule} */`,
+    description,
   }
-  prev[fileSelector][`eslint-comment-syntax: eslint-disable`] = {
-    prefix: `eslint-disable`,
-    body: `/* eslint-disable $1 */`,
+  prev[fileSelectors[0]][`eslint-disable-next-line ${rule}`] = {
+    prefix: `${rule} eslint-disable-next-line`,
+    body: `// eslint-disable-next-line ${rule}\n$1`,
+    description,
   }
-  prev[fileSelector][`eslint-comment-syntax: eslint-disable-next-line`] = {
-    prefix: `eslint-disable-next-line`,
-    body: `// eslint-disable-next-line $1`,
-  }
-
-  // rules
-  prev[fileSelector][`eslint-rule: ${rule}`] = {
-    prefix : `eslint/${rule}`,
+  // only rules
+  prev[fileSelectors[0]][`eslint-rule/${rule}`] =
+  prev[fileSelectors[1]][`eslint-rule/${rule}`] = {
+    prefix : rule,
     body   : rule,
     description
   }
 
-  // rules with comment syntax
-  // comment syntax
-  prev[fileSelector][`eslint-disable-rule: ${rule}`] = {
-    prefix : `eslint-${rule}`,
-    body   : `/* eslint-disable ${rule} */\n$1`,
-  }
-  prev[fileSelector][`eslint-enable-rule: ${rule}`] = {
-    prefix : `eslint-${rule}`,
-    body   : `/* eslint-enable ${rule} */\n$1`,
-  }
-  prev[fileSelector][`eslint-enable-rule-in-block: ${rule}`] = {
-    prefix : `eslint-${rule}`,
-    body   : `/* eslint-disable ${rule} */\n$1\n/* eslint-enable ${rule} */`,
-  }
-  prev[fileSelector][`eslint-disable-rule-at-next-line: ${rule}`] = {
-    prefix : `eslint-${rule}`,
-    body   : `// eslint-disable-next-line ${rule} $1`,
-  }
-
   return prev
-}, { [fileSelector] : {} })
+}, {
+  [fileSelectors[0]] : {}, // for .js
+  [fileSelectors[1]] : {}, // for all
+})
+
+// comment syntax only
+result[fileSelectors[0]][`eslint-disable`] = {
+  prefix: `eslint-disable`,
+  body: `/* eslint-disable $1 */\n$2\n/* eslint-enable $1 */`,
+}
+result[fileSelectors[0]][`eslint-disable-next-line`] = {
+  prefix: `eslint-disable-next-line`,
+  body: `// eslint-disable-next-line $1\n$1`,
+}
 
 fs.writeFile('./snippets/eslint.cson', cson.stringify(result, null, ' '), err => {
   if (err) {

@@ -4,7 +4,7 @@
   "description": "Snippets of all eslint rules available",
   "keywords": "atom, eslint snippets",
   "scripts": {
-    "build": ".bin/build.js"
+    "build": "node .bin/build.js"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
