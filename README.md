@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/kamataryo/eslint-snippets.svg?branch=master)](https://travis-ci.org/kamataryo/eslint-snippets)
 
+[![apm](https://img.shields.io/apm/v/eslint-snippets.svg)](https://atom.io/packages/eslint-snippets)
+
+
 Snippets of all ESLint rules for [Atom](https://atom.io/) editor.
 
 ![image](./image.gif)

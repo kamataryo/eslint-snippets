@@ -1,12 +1,17 @@
 sudo: false
+
 language: node_js
+
 node_js:
-- '7'
+  - '7'
+
 cache:
   yarn: true
   directories:
-  - "~/.cache/yarn"
+    - "~/.cache/yarn"
+
 before_script:
-- yarn global add npm-check-updates
+  - yarn global add npm-check-updates
+
 script:
-- node .bin/build.js
+  - node .bin/build.js
