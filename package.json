@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "build": "node .bin/build.js",
-    "preversion": "git fetch",
-    "postversion": "git push origin master && git push origin $(git describe --abbrev=0 --tags)"
+    "__preversion": "git fetch",
+    "__postversion": "git push origin master && git push origin $(git describe --abbrev=0 --tags)"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
