@@ -2,7 +2,13 @@
   "name": "eslint-snippets",
   "version": "0.0.6",
   "description": "Snippets of all eslint rules available",
-  "keywords": "atom, eslint snippets",
+  "keywords": [
+    "atom",
+    "eslint",
+    "snippets",
+    "completion",
+    "autocomplete"
+  ],
   "scripts": {
     "build": "node .bin/build.js"
   },
