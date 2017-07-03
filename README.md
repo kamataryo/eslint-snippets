@@ -25,7 +25,7 @@ Alternatively go to `Atom > Preferences > Packages` and search for `eslint-snipp
   - "eslint-disable" or "eslint-disable-next-line"
 2. complete them.
 
-## development
+## Development
 
 ```shell
 git clone git@github.com:kamataryo/eslint-snippets.git
@@ -34,8 +34,8 @@ npm install
 npm run build
 ```
 
-## publish (for commiters)
+## Contribution
 
-```shell
-$ apm publish patch -m"Change log message"
-```
+Issues and PRs are welcome!
+
+https://github.com/kamataryo/eslint-snippets
