@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "build": "node .bin/build.js",
-    "__preversion": "git fetch",
-    "__postversion": "git push origin master && git push origin $(git describe --abbrev=0 --tags)"
+    "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
+    "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
