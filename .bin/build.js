@@ -1,13 +1,11 @@
-const fs = require('fs')
-const cson = require('cson')
-const rules = Object.keys(require('eslint/conf/eslint-all').rules)
 
 const fileSelectors = [
   '.source.js',
   '.source.json',
 ]
 
-const result = rules.reduce((prev, rule) => {
+const result = Object.keys(require('eslint/conf/eslint-all').rules)
+.reduce((prev, rule) => {
 
   const { description } = require(`eslint/lib/rules/${rule}`).meta.docs
 
@@ -33,7 +31,7 @@ const result = rules.reduce((prev, rule) => {
   return prev
 }, {
   [fileSelectors[0]] : {}, // for .js
-  [fileSelectors[1]] : {}, // for all
+  [fileSelectors[1]] : {}, // for .json
 })
 
 // comment syntax only
@@ -46,9 +44,15 @@ result[fileSelectors[0]][`eslint-disable-next-line`] = {
   body: `// eslint-disable-next-line $1\n$1`,
 }
 
-fs.writeFile('./snippets/eslint.cson', cson.stringify(result, null, ' '), err => {
-  if (err) {
-    throw err
+require('fs').writeFile(
+  './snippets/eslint.cson',
+  require('cson').stringify(result, null, ' '), err => {
+    if (err) {
+      process.stderr.write(err)
+      process.exit(1)
+    } else {
+      process.stdout.write('success')
+      process.exit(0)
+    }
   }
-  console.log('done')
-})
+)

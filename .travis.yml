@@ -10,8 +10,5 @@ cache:
   directories:
     - "~/.cache/yarn"
 
-before_script:
-  - yarn global add npm-check-updates
-
 script:
   - node .bin/build.js
