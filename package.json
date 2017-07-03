@@ -1,6 +1,6 @@
 {
   "name": "eslint-snippets",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Snippets of all eslint rules available",
   "keywords": [
     "atom",
