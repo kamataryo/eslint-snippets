@@ -52,7 +52,7 @@ const result = rules.reduce((prev, rule) => {
   return prev
 }, { [fileSelector] : {} })
 
-fs.writeFile('./snippets/eslint.cson', cson.stringify(result), err => {
+fs.writeFile('./snippets/eslint.cson', cson.stringify(result, null, ' '), err => {
   if (err) {
     throw err
   }

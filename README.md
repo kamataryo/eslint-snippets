@@ -24,3 +24,9 @@ cd eslint-snippets
 npm install
 npm run build
 ```
+
+## publish (for commiters)
+
+```shell
+$ apm publish patch -m"Change log message"
+```
