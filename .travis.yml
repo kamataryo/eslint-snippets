@@ -5,15 +5,12 @@ language: node_js
 node_js:
   - '7'
 
-dist: trusty
-
 addons:
   apt:
     sources:
       - sourceline: 'ppa:webupd8team/atom'
     packages:
       - atom
-
 
 cache:
   yarn: true

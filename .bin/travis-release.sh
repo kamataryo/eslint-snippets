@@ -31,7 +31,11 @@ if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
   fi
 fi
 
-rm -rf .git
+echo 'publishing...'
+
+git push origin :latest
+git checkout latest
+
 rm -rf .bin
 rm -rf snippets
 rm .gitignore
