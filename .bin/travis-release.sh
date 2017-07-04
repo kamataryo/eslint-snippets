@@ -25,6 +25,7 @@ if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
   npm-check-updates -u
 
   if [[ $(git --no-pager diff) != "" ]]; then
+    npm run build
     git add .
     git commit -m "Upgrade package [made in travis cron]"
     git push origin master
