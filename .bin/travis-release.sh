@@ -16,6 +16,12 @@ if [ $TRAVIS_TAG != "" ]; then
   exit 0
 fi
 
+git config user.name 'kamataryo@travis'
+git config user.email "kamataryo@users.noreply.github.com"
+git remote remove origin
+git remote add origin git@github.com:kamataryo/eslint-snippets.git
+git checkout master
+
 # Auto upgrade
 if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
   echo 'Auto-upgrade is performing.'
@@ -26,13 +32,6 @@ if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
   if [[ $(git --no-pager diff) != "" ]]; then
     # rebuild
     npm run build
-
-    git config user.name 'kamataryo@travis'
-    git config user.email "kamataryo@users.noreply.github.com"
-    git remote remove origin
-    git remote add origin git@github.com:kamataryo/eslint-snippets.git
-    git checkout master
-
     git add .
     git commit -m "Upgrade package [made in travis cron]"
     git push origin master
