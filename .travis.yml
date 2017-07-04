@@ -5,6 +5,8 @@ language: node_js
 node_js:
   - '7'
 
+dist: trusty
+
 addons:
   apt:
     sources:
