@@ -31,9 +31,9 @@ if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
   fi
 fi
 
-rm -r .git
-rm -r .bin
-rm -r snippets
+rm -rf .git
+rm -rf .bin
+rm -rf snippets
 rm .gitignore
 rm .travis_rsa.enc
 rm .travis.yml
