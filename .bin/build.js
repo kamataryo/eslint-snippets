@@ -41,7 +41,7 @@ result[fileSelectors[0]][`eslint-disable`] = {
 }
 result[fileSelectors[0]][`eslint-disable-next-line`] = {
   prefix: `eslint-disable-next-line`,
-  body: `// eslint-disable-next-line $1\n$1`,
+  body: `// eslint-disable-next-line $1`,
 }
 
 require('fs').writeFile(
