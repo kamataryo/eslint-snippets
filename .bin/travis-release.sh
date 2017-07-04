@@ -62,5 +62,5 @@ popd
 # sync the version number on master branch
 rm -rf __dist
 npm version patch
-git commit --amend -m"Release [ci skip]"
+git commit --amend -m"Sync version [ci skip]"
 git push origin master
