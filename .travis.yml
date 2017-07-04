@@ -5,6 +5,16 @@ language: node_js
 node_js:
   - '7'
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-6
+    - fakeroot
+    - git
+    - libsecret-1-dev
+
 cache:
   yarn: true
   directories:
