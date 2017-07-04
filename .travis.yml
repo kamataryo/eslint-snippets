@@ -30,6 +30,10 @@ after_success:
   - "chmod 600 $HOME/.ssh/id_rsa"
   - "pushd $HOME"
   - "curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh"
+  - "ls -la"
+  - "which atom"
+  - "ls /usr/bin"
+  - "ls /usr/local/bin"
   - "popd"
   - ".bin/travis-release.sh"
 
