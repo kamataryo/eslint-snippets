@@ -10,7 +10,7 @@
     "autocomplete"
   ],
   "scripts": {
-    "build": "node .bin/build.js",
+    "build": "[ -d ./snippets ] || mkdir ./snippets ; node .bin/build.js",
     "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
     "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
   },

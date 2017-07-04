@@ -34,14 +34,20 @@ fi
 
 echo 'publishing...'
 
-git checkout -b latest
-
+rm -rf .git
 rm -rf .bin
-rm -rf snippets
+rm -rf node_modules
 rm .gitignore
 rm .travis_rsa.enc
 rm .travis.yml
 rm image.gif
+rm yarn.lock
+
+git init
+git config user.name 'kamataryo@travis'
+git config user.email "kamataryo@users.noreply.github.com"
+git remote add origin git@github.com:kamataryo/eslint-snippets.git
+git checkout -b latest
 
 git add .
 git commit -m"Release [ci skip]"
