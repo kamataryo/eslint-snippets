@@ -12,12 +12,6 @@ addons:
     packages:
       - "atom"
 
-branches:
-  except:
-    - "latest"
-    - "/^v?[0-9](\\.[0-9])*/"
-
-
 cache:
   yarn: true
   directories:
