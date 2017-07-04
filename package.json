@@ -1,0 +1,35 @@
+{
+  "name": "eslint-snippets",
+  "version": "0.0.19",
+  "description": "Snippets of all eslint rules available",
+  "keywords": [
+    "atom",
+    "eslint",
+    "snippets",
+    "completion",
+    "autocomplete"
+  ],
+  "scripts": {
+    "build": "mkdir -p ./snippets && node .bin/build.js",
+    "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
+    "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cson": "^4.1.0",
+    "eslint": "^4.1.1"
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamataryo/eslint-snippets.git"
+  },
+  "author": "kamataryo <mugil.cephalus+gitgub.com@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/kamataryo/eslint-snippets/issues"
+  },
+  "homepage": "https://github.com/kamataryo/eslint-snippets#readme"
+}
