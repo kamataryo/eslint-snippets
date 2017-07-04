@@ -5,7 +5,7 @@
 
 Snippets of all the ESLint rules and its comment syntax for [Atom](https://atom.io/) editor.
 
-![image](./image.gif)
+![image](https://github.com/kamataryo/eslint-snippets/raw/master/image.gif)
 
 ## Installation
 

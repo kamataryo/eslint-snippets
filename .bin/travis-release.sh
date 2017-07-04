@@ -35,23 +35,25 @@ fi
 
 echo 'publishing...'
 
-rm -rf .git
-rm -rf .bin
-rm -rf node_modules
-rm .gitignore
-rm .travis_rsa.enc
-rm .travis.yml
-rm image.gif
-rm yarn.lock
+mkdir __dist
+cp -r ./snippets ./__dist/
+cp ./*.md ./__dist/
+cp ./package.json ./__dist/
 
+# format package and apm publish
+pushd __dist
 git init
 git config user.name 'kamataryo@travis'
 git config user.email "kamataryo@users.noreply.github.com"
 git remote add origin git@github.com:kamataryo/eslint-snippets.git
 git checkout -b latest
-
 git add .
 git commit -m"Release [ci skip]"
 git push -f origin latest
-
 apm publish patch
+popd
+
+# sync the version number on master branch
+rm -rf __dist
+npm version patch
+git push origin master
