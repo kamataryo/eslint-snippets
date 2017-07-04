@@ -38,3 +38,7 @@ npm run build
 ## Contribution
 
 Issues and PRs are welcome.
+
+## Publish (for commiters)
+
+`apm publish` follows pushing to master on [Travis CI](https://travis-ci.org/kamataryo/eslint-snippets).
