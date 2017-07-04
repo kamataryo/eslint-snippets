@@ -34,8 +34,7 @@ fi
 
 echo 'publishing...'
 
-git push origin :latest
-git checkout latest
+git checkout -b latest
 
 rm -rf .bin
 rm -rf snippets
@@ -43,5 +42,9 @@ rm .gitignore
 rm .travis_rsa.enc
 rm .travis.yml
 rm image.gif
+
+git add .
+git commit -m"Release [ci skip]"
+git push -f origin latest
 
 apm publish patch
