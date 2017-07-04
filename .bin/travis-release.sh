@@ -34,7 +34,7 @@ fi
 
 echo 'publishing...'
 
-git push origin :latest || true
+git push origin :latest
 git checkout latest
 
 rm -rf .bin
