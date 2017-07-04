@@ -11,6 +11,11 @@ if [ $TRAVIS_BRANCH != "master" ]; then
   exit 0
 fi
 
+if [ $TRAVIS_TAG != "" ]; then
+  echo "not deploying from $TRAVIS_TAG."
+  exit 0
+fi
+
 git config user.name 'kamataryo@travis'
 git config user.email "kamataryo@users.noreply.github.com"
 git remote remove origin
@@ -31,6 +36,7 @@ if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
     git commit -m "Upgrade package [made in travis cron]"
     git push origin master
   fi
+  exit 0
 fi
 
 echo 'publishing...'

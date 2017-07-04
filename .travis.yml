@@ -8,9 +8,15 @@ node_js:
 addons:
   apt:
     sources:
-      - sourceline: 'ppa:webupd8team/atom'
+      - sourceline: "ppa:webupd8team/atom"
     packages:
-      - atom
+      - "atom"
+
+branches:
+  except:
+    - "latest"
+    - "/^v?[0-9](\\.[0-9])*/"
+
 
 cache:
   yarn: true
