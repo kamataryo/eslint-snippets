@@ -38,6 +38,5 @@ rm .gitignore
 rm .travis_rsa.enc
 rm .travis.yml
 rm image.gif
-rm yarn.lock
 
 apm publish patch
