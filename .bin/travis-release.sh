@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $TRAVIS != "true" ]; then
+if [ "$TRAVIS" != "true" ]; then
   echo "deploying only from Travis CI environment."
   exit 0
 fi
 
-if [ $TRAVIS_BRANCH != "master" ]; then
+if [ "$TRAVIS_BRANCH" != "master" ]; then
   echo "not deploying from $TRAVIS_BRANCH."
   exit 0
 fi
 
-if [ $TRAVIS_TAG != "" ]; then
+if [ "$TRAVIS_TAG" != "" ]; then
   echo "not deploying from $TRAVIS_TAG."
   exit 0
 fi
@@ -23,17 +23,16 @@ git remote add origin git@github.com:kamataryo/eslint-snippets.git
 git checkout master
 
 # Auto upgrade
-if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
+if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then
   echo 'Auto-upgrade is performing.'
 
   yarn upgrade
-  npm-check-updates -u
 
-  if [[ $(git --no-pager diff) != "" ]]; then
+  if [[ "$(git --no-pager diff)" != "" ]]; then
     # rebuild
     npm run build
     git add .
-    git commit -m "Upgrade package [made in travis cron]"
+    git commit -m "Upgrade package [cron]"
     git push origin master
   fi
   exit 0
