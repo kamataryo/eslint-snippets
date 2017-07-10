@@ -20,6 +20,13 @@ const result = Object.keys(require('eslint/conf/eslint-all').rules)
     description,
     descriptionMoreURL,
   }
+  prev[fileSelectors[0]][`eslint-disable-line ${rule}`] = {
+    prefix: `${rule} eslint-disable-line`,
+    body: `// eslint-disable-line ${rule}`,
+    leftLabel,
+    description,
+    descriptionMoreURL,
+  }
   prev[fileSelectors[0]][`eslint-disable-next-line ${rule}`] = {
     prefix: `${rule} eslint-disable-next-line`,
     body: `// eslint-disable-next-line ${rule}\n$1`,
@@ -48,6 +55,12 @@ result[fileSelectors[0]][`eslint-disable`] = {
   prefix: `eslint-disable`,
   body: `/* eslint-disable $1 */\n$2\n/* eslint-enable $1 */`,
   description: 'disable specific rules between the inline comments',
+  descriptionMoreURL: 'http://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments',
+}
+result[fileSelectors[0]][`eslint-disable-line`] = {
+  prefix: `eslint-disable-line`,
+  body: `// eslint-disable-line`,
+  description: 'disable specific rules on the line',
   descriptionMoreURL: 'http://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments',
 }
 result[fileSelectors[0]][`eslint-disable-next-line`] = {
