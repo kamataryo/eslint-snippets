@@ -26,7 +26,7 @@ git checkout master
 if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then
   echo 'Auto-upgrade is performing.'
 
-  yarn upgrade
+  npm upgrade
 
   if [[ "$(git --no-pager diff)" != "" ]]; then
     # rebuild
