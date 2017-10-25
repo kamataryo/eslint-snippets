@@ -72,7 +72,7 @@ else
 fi
 popd
 
-# sync the version number on master branch
+# sync the version number with master branch
 rm -rf __dist
 npm version patch
 git commit --amend -m"Sync version [ci skip]"

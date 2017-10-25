@@ -12,14 +12,14 @@ Snippets of all the ESLint rules and its comment syntax for [Atom](https://atom.
 Run the following command:
 
 ```shell
-$ apm install eslint-snippets
+apm install eslint-snippets
 ```
 
 Alternatively go to `Atom > Preferences > Packages` and search for `eslint-snippets`.
 
 ## Usage
 
-  The snippets are available on `*.js` or `*.json`.
+gThe snippets are available on `*.js` or `*.json`.
 
 1. Try to type..
   - the rule name, for example `no-console`
