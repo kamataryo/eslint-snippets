@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - '8'
+  - '7'
 
 addons:
   apt:
@@ -11,6 +11,9 @@ addons:
       - sourceline: "ppa:webupd8team/atom"
     packages:
       - "atom"
+
+cache:
+  - apt
 
 script:
   - "npm run build"
