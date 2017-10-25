@@ -40,15 +40,7 @@ fi
 
 echo 'publishing...'
 
-LATEST_SNIPPETS=$(curl https://raw.githubusercontent.com/kamataryo/eslint-snippets/latest/snippets/eslint.cson)
-BUILT_SNIPPETS=$(cat ./snippets/eslint.cson)
-
-if [[ $LATEST_SNIPPETS == "$BUILT_SNIPPETS" ]]; then
-  RELEASE=false
-else
-  RELEASE=true
-fi
-
+# create publishing directory
 mkdir __dist
 cp -r ./snippets ./__dist/
 cp ./*.md ./__dist/
@@ -64,12 +56,7 @@ git checkout -b latest
 git add .
 git commit -m"Release [ci skip]"
 git push -f origin latest
-if [[ $RELEASE == "true" ]]; then
-  apm publish patch
-else
-  echo 'nothing to release.'
-  exit 0
-fi
+apm publish patch
 popd
 
 # sync the version number with master branch
