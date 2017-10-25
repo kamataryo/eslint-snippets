@@ -34,6 +34,8 @@ if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then
     git add .
     git commit -m "Upgrade package [cron]"
     git push origin master
+  else
+    echo 'nothing to upgrade.'
   fi
   exit 0
 fi
