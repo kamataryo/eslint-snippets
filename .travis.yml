@@ -5,28 +5,8 @@ language: node_js
 node_js:
   - '8'
 
-addons:
-  apt:
-    sources:
-      - sourceline: "ppa:webupd8team/atom"
-    packages:
-      - "atom"
-
-cache:
-  - apt
-
 script:
   - "npm run build"
-
-after_success:
-  - "openssl aes-256-cbc -K $encrypted_a17861772d25_key -iv $encrypted_a17861772d25_iv -in ./.travis_rsa.enc -out $HOME/.ssh/id_rsa -d"
-  - "chmod 600 $HOME/.ssh/id_rsa"
-  - "export DISPLAY=:0.0"
-  - ".bin/travis-release.sh"
-
-env:
-  global:
-    secure: jWRtoM+qG/tG60k9AgQ+ZYAGtngjYDCg5FrhoUgxgeeiZhgu8YZOyrZdh2SHBwv44iYPkUToYZv7rTe61EXqYCBrB145RA79wdGFLZlCE7UpUhIoW7Z+Sfoq+WkRGDeZABQ6oJVm9qBsICl6qgqAkWiCS32mShK/wz6NMwvNphSr1Wy2GRY1GoNsa6do6k80WrCwmlsXCZFPzfYQedxBj3s15X6NLm/mnRZqzC04VLZ9kaCXyiVLOTHvJQY95mFOYP+7ISjBO9I9QPXxkkkh4G1ppVwJ0vBs3+jF1begMuS8LEPRuA7HyZnKmw/hJHq8QhmrXJUrMtIEFosPb+GY3ImeppVynWy3SmCxguutURcqjf1JOPOwBl1Iy3b7MdzXEOpElUFFIbupEOG3J2iOfgxywkv2JEiVQqoAJyzjZkMDGiBoIZwV/78ZKW9gMiItkJOE9xVGO5wmmG1l4MPADeHCTlxsiQdle1YuYdZKcMcwKV5Si26g73oGmSydnF11U76LC6ZMR+5pwewuFlFimiPIUSBoe2N8T6zpy3qFpvJ4+u3lrxyaNsPaAWakHD2Owb+n2w0w9464HldopnblPN3DFw9O3o1ECrJioOJJQlgkyXE+qJ6GS0HcrWlVD9tHRgsZP9FthSQvBsr8pC17C2tdD46GJqcfmaAW9CfLcmM=
 
 notifications:
   slack:
