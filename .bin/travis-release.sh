@@ -44,9 +44,6 @@ echo 'publishing...'
 
 # create publishing directory
 mkdir __dist
-cp -r ./snippets ./__dist/
-cp ./*.md ./__dist/
-cp ./package.json ./__dist/
 
 # format package and apm publish
 pushd __dist
@@ -55,6 +52,9 @@ git config user.name 'kamataryo@travis'
 git config user.email "kamataryo@users.noreply.github.com"
 git remote add origin git@github.com:kamataryo/eslint-snippets.git
 git checkout -b latest
+cp -r ../snippets ./
+cp ../*.md ./
+cp ../package.json ./
 git add .
 git commit -m"Release [ci skip]"
 git push -f origin latest
