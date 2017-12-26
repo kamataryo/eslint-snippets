@@ -1,6 +1,6 @@
 {
   "name": "eslint-snippets",
-  "version": "0.2.2",
+  "version": "0.1.10",
   "description": "Snippets of all eslint rules available",
   "keywords": [
     "atom",
@@ -25,7 +25,7 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kamataryo/eslint-snippets.git"
+    "url": "git+https://github.com/kamataryo/eslint-snippets.git"
   },
   "author": "kamataryo <mugil.cephalus+gitgub.com@gmail.com>",
   "bugs": {
