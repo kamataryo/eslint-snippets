@@ -19,7 +19,7 @@ Alternatively go to `Atom > Preferences > Packages` and search for `eslint-snipp
 
 ## Usage
 
-gThe snippets are available on `*.js` or `*.json`.
+The snippets are available on `*.js`, `*.jsx` or `*.json`.
 
 1. Try to type..
   - the rule name, for example `no-console`
