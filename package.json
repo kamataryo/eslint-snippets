@@ -22,12 +22,11 @@
     "cson": "^4.1.0",
     "eslint": "^4.10.0"
   },
-  "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamataryo/eslint-snippets.git"
+    "url": "https://github.com/kamataryo/eslint-snippets.git"
   },
-  "author": "kamataryo <mugil.cephalus+gitgub.com@gmail.com>",
+  "author": "kamataryo <mugil.cephalus+github.com@gmail.com>",
   "bugs": {
     "url": "https://github.com/kamataryo/eslint-snippets/issues"
   },
