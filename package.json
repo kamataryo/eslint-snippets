@@ -2,16 +2,11 @@
   "name": "eslint-snippets",
   "version": "0.1.10",
   "description": "Snippets of all eslint rules available",
-  "keywords": [
-    "atom",
-    "eslint",
-    "snippets",
-    "completion",
-    "autocomplete"
-  ],
+  "keywords": ["atom", "eslint", "snippets", "completion", "autocomplete"],
   "scripts": {
     "build": "mkdir -p ./snippets && node .bin/build.js",
-    "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
+    "__deploykey_gen":
+      "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
     "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
   },
   "engines": {
@@ -25,7 +20,7 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamataryo/eslint-snippets.git"
+    "url": "https://github.com/kamataryo/eslint-snippets.git"
   },
   "author": "kamataryo <mugil.cephalus+gitgub.com@gmail.com>",
   "bugs": {
