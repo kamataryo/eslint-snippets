@@ -1,4 +1,4 @@
-const fileSelectors = ['.source.js', '.source.json']
+const fileSelectors = ['.source.js, .source.jsx', '.source.json']
 
 const result = Object.keys(require('eslint/conf/eslint-all').rules).reduce(
   (prev, rule) => {
