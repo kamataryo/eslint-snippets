@@ -23,7 +23,7 @@ The snippets are available on `*.js`, `*.jsx` or `*.json`.
 
 1.  Try to type..
 
-* the rule name after `eslint`, for example `eslint no-console`
+* rule names after `eslint`, for example `eslint/no-console`
 * `eslint-disable` or `eslint-disable-next-line`
 
 2.  You can see the suggests
