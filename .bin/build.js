@@ -7,28 +7,6 @@ const result = Object.keys(require('eslint/conf/eslint-all').rules).reduce(
     const leftLabel = docs.category
     const descriptionMoreURL = `http://eslint.org/docs/rules/${rule}`
 
-    // comment syntax
-    prev[fileSelectors[0]][`eslint-disable ${rule}`] = {
-      prefix: `eslint/${rule} eslint-disable`,
-      body: `/* eslint-disable ${rule} */\n$1\n/* eslint-enable ${rule} */`,
-      leftLabel,
-      description,
-      descriptionMoreURL
-    }
-    prev[fileSelectors[0]][`eslint-disable-line ${rule}`] = {
-      prefix: `eslint/${rule} eslint-disable-line`,
-      body: `// eslint-disable-line ${rule}`,
-      leftLabel,
-      description,
-      descriptionMoreURL
-    }
-    prev[fileSelectors[0]][`eslint-disable-next-line ${rule}`] = {
-      prefix: `eslint/${rule} eslint-disable-next-line`,
-      body: `// eslint-disable-next-line ${rule}\n$1`,
-      leftLabel,
-      description,
-      descriptionMoreURL
-    }
     // only rules
     prev[fileSelectors[0]][`eslint-rule/${rule}`] = prev[fileSelectors[1]][
       `eslint-rule/${rule}`
